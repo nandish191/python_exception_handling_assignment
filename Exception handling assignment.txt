@@ -1,0 +1,156 @@
+##======Exception handling ===================
+
+
+try:
+    a=int(input("enter value : "))
+    print(a)
+except :
+    print("enter intiger value")
+
+print("terminate")    
+
+
+def fun(x,y):
+    try:
+        z=x/y
+        print(z)
+    except ZeroDivisionError:
+        print("denominator should not be zero") 
+    except ValueError:
+        print("value must be an integer")       
+
+result=fun(10,2.5)
+
+l=[22,33,44,55]
+try:
+    print(l[5])
+except IndexError as e:
+    print(e)    
+
+
+try:
+    a=int(input("enter value :"))
+    assert a%2==0
+    print("even no ")
+except:
+    print("not a even no :")
+
+
+try:
+    inp=eval(input("enter age :"))
+    assert inp>18 
+    print("eligible to vote")
+except:
+    print("not eligible to vote")    
+
+
+try:
+    a=str(input("enter a mobile no :"))
+    assert len(a)==10
+    print("regn successfull")
+except:
+    print("invalid mobile no ") 
+else:
+    print("thank you for your regn ")     
+
+
+
+try:
+    salary=int(input("enter net salary :"))
+    age=int(input("enter valid age :"))
+    assert salary>15000 and age>=18
+    print("eligible for loan amount :")
+
+except ValueError:
+    print("enter valid details :") 
+
+except :
+    print("not eligible for loan amount  :")       
+
+#================Pandas=================
+
+import pandas as pd
+
+dataset={
+    "cars":['bmw','tata','landrover','jaguar'],
+    'passing':['ka','ap','kl','tn']
+}
+
+var=pd.DataFrame(dataset)
+print(var)
+
+###o/p        
+
+#         cars passing
+# 0        bmw      ka
+# 1       tata      ap
+# 2  landrover      kl
+# 3     jaguar      tn
+
+import pandas as pd
+print(pd.__version__)
+
+## series : it is one dimensional array holding data of any type
+import pandas as pd
+a=[1,2,3,4,5,6]
+var=pd.Series(a)
+print(var)
+###O/P
+
+# 0    1
+# 1    2
+# 2    3
+# 3    4
+# 4    5
+# 5    6
+# dtype: int64
+
+li=['python',22,'java',33,'c++','c#']
+var=pd.Series(li)
+print(var)
+print(var[5])
+
+###O/P
+# 0    python
+# 1        22
+# 2      java
+# 3        33
+# 4       c++
+# 5        c#
+# dtype: object
+# c#
+
+li=['python',22,'java',33,'c++','c#']
+var=pd.Series(li)
+for ele in var:
+    if isinstance(ele, int):
+        # var.pop(li[1])
+        # print(li)
+        print(var)
+        # print(var, ele)
+
+
+a=[1,2,3]
+var=pd.Series(a, index=["x","y","z"])
+print(var)
+print(var['z'])
+###o/p
+# x    1
+# y    2
+# z    3
+
+## key value objects as series
+
+vehivle_info={
+    "bike":"two wheeler", 'car':"four wheeler", 'bus':"six wheeler"
+}
+
+var=pd.Series(vehivle_info)
+print(var)
+print(var['bike'])
+
+##O/P
+# # bike     two wheeler
+# # car     four wheeler
+# # bus      six wheeler
+# # dtype: object
